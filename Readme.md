@@ -47,7 +47,7 @@ This thread pool can still deadlock even when the number of threads is big.
 
 1000 tasks, 1000 threads : time ≈ 1273 ms
 
-10000 tasks, 3791 threads : time ≈ 3791 ms
+10000 tasks, 4000 threads : time ≈ 3791 ms
 
 10000 tasks, 5000 threads
 OOM T_T, 
@@ -55,3 +55,4 @@ OOM T_T,
 10000 tasks, 10000 threads
 OOM T_T, 
 ```
+
