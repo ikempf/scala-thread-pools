@@ -35,3 +35,23 @@ Created extra threads are removed after usage.
 10000 tasks : time 38781 ms
 10000 / 264 = 37.9, 38 cycles ≈ 38000ms 
 ```
+
+## FixedThreadPool
+```
+Very efficient when the maximum number of needed threads is known. 
+This thread pool can still deadlock even when the number of threads is big.
+
+10 tasks, 10 threads : time ≈ 1113 ms
+
+1000 tasks, 100 threads : time ≈ 10169 ms
+
+1000 tasks, 1000 threads : time ≈ 1273 ms
+
+10000 tasks, 3791 threads : time ≈ 3791 ms
+
+10000 tasks, 5000 threads
+OOM T_T, 
+
+10000 tasks, 10000 threads
+OOM T_T, 
+```
