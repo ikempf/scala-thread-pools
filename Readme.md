@@ -73,3 +73,10 @@ by a memory issue but by the os not allocating any more native threads to the JV
 
 10000 tasks, spawns ≈ 4026 threads : time ≈ 2272 ms
 ```
+
+## Monix
+```
+Scheduler.global is a ForkJoinPool (it uses ExecutionContext.global)
+
+Scheduler.io() is an UnboundedCachedThreadPool made for io.
+```
