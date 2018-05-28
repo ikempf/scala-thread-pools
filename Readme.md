@@ -56,3 +56,20 @@ OOM T_T,
 OOM T_T, 
 ```
 
+## CachedUnboundedThreadPool
+```
+Creates thread as needed and let's them live for up to 1 min (by default) before garbage collecting them.
+Since there is no upper limit there is no risk of deadlock. 
+Looking at ThreadPoolExecutor.addWorker(), there should to be some kind of throttling of new thread allocations when 
+there are no native threads left on the os BUT this mechanism does not seem to work every time ?
+The JVM will OOMs when there are too many parallel tasks, in this case oom is not caused
+by a memory issue but by the os not allocating any more native threads to the JVM. Might crash your OS (no native threads left).
+
+10 tasks, 10 threads : time ≈ 1119 ms
+
+1000 tasks, 1000 threads : time ≈ 1118 ms
+
+4000 tasks, spawns 3560 threads : time ≈ 2272 ms
+
+10000 tasks, spawns ≈ 4026 threads : time ≈ 2272 ms
+```
