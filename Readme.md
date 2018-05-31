@@ -80,3 +80,21 @@ Scheduler.global is a ForkJoinPool (it uses ExecutionContext.global)
 
 Scheduler.io() is an UnboundedCachedThreadPool made for io.
 ```
+
+## NonBlockingTimerBased
+```
+Scales a lot more. 
+Uses a lot of CPU. Could probably use less if 
+ - Timer's internal queue was correctly size
+ - event's were not ordered in the internal queue but simply treated FIFO-wise 
+1 timer thread (event-loop) and a ForkJoinPool (8 threads)
+
+
+1000 tasks, 1 thread + 8 threads : time ≈ 1138 ms
+
+100000 tasks, 1 thread + 8 threads : time ≈ 1594 ms
+
+1000000 tasks, 1 thread + 8 threads : time ≈ 6029 ms
+
+```
+
