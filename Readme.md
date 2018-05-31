@@ -98,3 +98,16 @@ Uses a lot of CPU. Could probably use less if
 
 ```
 
+## NonBlockingAkkaBased
+```
+Uses a lot of CPU.
+Between 8 and 64 threads for the actor system's default dispatcher
+
+100000 tasks, n threads : time ≈ 1375 ms
+
+1000000 tasks, n threads : time ≈ 4910 ms
+
+10000000 tasks, n threads : time ≈ 5010 ms
+
+100000000 tasks, n threads : time ≈ 54210 ms
+```
